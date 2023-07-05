@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const USER_API_BASE_URL ="http://localhost:8080/api/auth/admin/user"
+const USER_API_BASE_URL ="http://localhost:8091/api/auth/admin/user"
 
 class AdminUserService{
     getUsers(){
@@ -27,13 +27,13 @@ getexport(){
 return axios.get("http://localhost:8080/api/auth/admin/export");
 }
 changePassword(username, user){
-return axios.put("http://localhost:8080/api/auth/changePassword/"+ username, user);
+return axios.put("http://localhost:8091/api/auth/changePassword/"+ username, user);
 }
 changeInfo(username, user){
-return axios.put("http://localhost:8080/api/auth/changeInfo/"+ username, user);
+return axios.put("http://localhost:8091/api/auth/changeInfo/"+ username, user);
 }
 getusername(username){
-return axios.get('http://localhost:8080/api/auth/admin/'+ username);
+return axios.get('http://localhost:8091/api/auth/admin/'+ username);
 }
 
 }

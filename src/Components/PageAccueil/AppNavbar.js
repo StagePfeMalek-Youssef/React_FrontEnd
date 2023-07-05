@@ -64,7 +64,7 @@ class AppNavbar extends Component {
         
     <Nav className="mr-auto">
       <NavLink href="/home">Home</NavLink>
-      {this.state.showUser && <NavLink href="/user">User</NavLink>}
+      {this.state.showUser && <NavLink href="/parametre">User</NavLink>}
       {this.state.showAdmin && <NavLink href="/admin">Admin</NavLink>}
           
     </Nav>

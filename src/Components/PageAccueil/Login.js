@@ -6,7 +6,7 @@ import loginIcon from '../../images/logo.jpg'
 import uiImg from '../../images/login.png';
 import './Login.css';
 import AppNavbar from './AppNavbar';
-import SocialService from '../../services/SocialService';
+//import SocialService from '../../services/SocialService';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import { Input } from 'reactstrap';
@@ -78,35 +78,10 @@ class Login extends Component {
 
     );
   }
-  responceGoogle=(response)=>{
-       
-    console.log(response.tokenId);
-    console.log(this);
-    SocialService.loginWithGoogle(response.tokenId).then(data=> {
-      AuthenticationService.signin(data.email,this.state.passwordSocial).then(
-        ()=>{
-
-          AuthenticationService.signin(data.email,this.state.passwordSocial).then(
-         ()=>{
-          
-          this.props.history.push('/profile');
-        }
-    );
-        }
-    );
-  });
+ 
     
-}
-responseFacebook = response => {
-  console.log(response.accessToken);
-  SocialService.loginWithFacebook(response.accessToken).then(data=> {
-    AuthenticationService.signin(data.email,this.state.passwordSocial).then(
-      ()=>{
-        this.props.history.push('/profile');
-      }
-  );
- });
-}
+
+
 componentClicked = () => console.log("clicked");
   render() {
     return (
@@ -116,31 +91,8 @@ componentClicked = () => console.log("clicked");
           <div className='login'>
           <h1 className='loginTitle'>Se connecter</h1>
             <div className='wrapperLogin'>
-              <div className='left'>
-                <div className='loginButton google'>
-                  <GoogleLogin
-                    clientId='1067196279977-99ar67di0jnm0el8b5ase1llqb74jphh.apps.googleusercontent.com'
-                    buttonText='Login'
-                    onSuccess={this.responceGoogle}
-                    onFailure={this.responceGoogle}
-                    cookiePolicy={'single_host_origin'}
-                  />  
-                </div>
-                <div className='loginButton facebook'>
-                <FacebookLogin
-                    className='face'
-                    appId="640459680575561"
-                    autoLoad={false}
-                    fields="name,email,picture"
-                    onClick={this.componentClicked}
-                    callback={this.responseFacebook}
-                 />
-                </div>
-              </div>
-              <div className='center'>
-                <div className='line' />
-                <div className='or'>OR</div>
-              </div>
+              
+              
               <div className='right'>
                 <Form  onSubmit={this.doLogin} >
                    <FormGroup>

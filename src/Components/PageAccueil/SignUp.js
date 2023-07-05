@@ -135,7 +135,7 @@ class SignUp extends Component {
         (response) => {
           if (response.result == 1) {
             sessionStorage.setItem("emailactive", this.state.email)
-            this.props.history.push('/active');
+            this.props.history.push('/signin');
           } else {
             alert("Email is exist");
           }
